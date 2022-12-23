@@ -31,7 +31,7 @@ export default function SimpleBottomNavigation() {
     return (
         <Box sx={{}}>
             <BottomNavigation style={{
-                backgroundColor:'#fb4f14',
+                backgroundColor:'#1A1A1D',
                 position:'fixed',
                 bottom:0,
                 width:"100%",

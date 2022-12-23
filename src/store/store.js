@@ -1,15 +1,17 @@
-import {applyMiddleware, combineReducers, compose, legacy_createStore as createStore} from "redux";
+import {applyMiddleware, combineReducers, legacy_createStore as createStore} from "redux";
 import trendingReducer from "./reducers/trending-reducer.js";
-import thunkMiddleware from "redux-thunk"
+import thunk from 'redux-thunk'
+import moviesReducer from "./reducers/movies-reducer.js";
 
 
 const reducers = combineReducers({
-    trending:trendingReducer
+    trending:trendingReducer,
+    movies:moviesReducer,
 })
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store =  createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)));
+const store =  createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 
 
 export default store;

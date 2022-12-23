@@ -2,28 +2,26 @@ import {trendingAPI} from "../../api/api.js";
 
 
 const SET_TRENDING_MOVIES = 'SET_TRENDING_MOVIES'
-const SET_TRENDING_MOVIES_TOTAL_COUNT = 'SET_TRENDING_MOVIES_TOTAL_COUNT'
+const SET_TRENDING_MOVIES_PAGES_TOTAL_COUNT = 'SET_TRENDING_MOVIES_PAGES_TOTAL_COUNT'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 
 
 
-export const setTrendingMovies = (movies) =>{{type:SET_TRENDING_MOVIES, movies}}
-export const setTrendingMoviesTotalCount = (moviesCount) =>{{type:SET_TRENDING_MOVIES_TOTAL_COUNT, moviesCount}}
-export const setCurrentPage = (page) =>{{type:SET_TRENDING_MOVIES_TOTAL_COUNT, page}}
+export const setTrendingMovies = (movies) =>({type:SET_TRENDING_MOVIES, movies})
+export const setTrendingMoviesPagesTotalCount = (moviesPagesCount) =>({type:SET_TRENDING_MOVIES_PAGES_TOTAL_COUNT, moviesPagesCount})
+export const setCurrentPage = (currentPage) => ({type:SET_CURRENT_PAGE, currentPage})
 
 
-export const requestTrending = (currentPage) =>{
-    return async(dispatch) =>{
+export const requestTrending = (currentPage) => async (dispatch) =>{
         const response = await trendingAPI.getTrending(currentPage)
         dispatch(setTrendingMovies(response.data.results))
-        dispatch(setTrendingMoviesTotalCount(response.data.total_results))
-        di
+        dispatch(setTrendingMoviesPagesTotalCount(response.data.total_pages))
     }
-}
+
 
 const initialState = {
     trendingMovies:[],
-    trendingMoviesTotalCount:[],
+    trendingMoviesPagesTotalCount:[],
     currentPage:1
 }
 
@@ -35,16 +33,16 @@ const trendingReducer = (state = initialState,action) =>{
                 trendingMovies:action.movies
             }
         }
-        case SET_TRENDING_MOVIES_TOTAL_COUNT:{
+        case SET_TRENDING_MOVIES_PAGES_TOTAL_COUNT:{
             return{
                 ...state,
-                trendingMoviesTotalCount:action.moviesCount
+                trendingMoviesPagesTotalCount:action.moviesPagesCount
             }
         }
         case SET_CURRENT_PAGE:{
             return{
                 ...state,
-                currentPage:action.page
+                currentPage:action.currentPage
             }
         }
         default:

@@ -1,9 +1,14 @@
 import React, {useEffect} from 'react'
 import Trending from "./Trending.jsx";
 import {connect} from "react-redux";
-import {requestTrending} from "../../../store/reducers/trending-reducer.js";
+import {requestTrending, setCurrentPage} from "../../../store/reducers/trending-reducer.js";
 
 const TrendingContainer = (props) => {
+
+   const onTrendingPageChange= (pageNumber)=>{
+       props.setCurrentPage(pageNumber)
+       window.scroll(0,0)
+   }
 
     useEffect(() => {
         props.requestTrending(props.currentPage)
@@ -12,7 +17,10 @@ const TrendingContainer = (props) => {
     return (
         <div>
             <Trending
-                trendingMovies={props.trendingMovies}/>
+                trendingMovies={props.trendingMovies}
+                trendingMoviesPagesTotalCount={props.trendingMoviesPagesTotalCount}
+                onTrendingPageChange={onTrendingPageChange}
+            />
         </div>
     )
 }
@@ -20,10 +28,10 @@ const TrendingContainer = (props) => {
 const mapStateToProps = (state) => {
     return {
         trendingMovies: state.trending.trendingMovies,
-        trendingMoviesTotalCount: state.trending.trendingMoviesTotalCount,
+        trendingMoviesPagesTotalCount: state.trending.trendingMoviesPagesTotalCount,
         currentPage:state.trending.currentPage
     }
 }
 
 
-export default connect(mapStateToProps, {requestTrending})(TrendingContainer);
+export default connect(mapStateToProps, {requestTrending,setCurrentPage})(TrendingContainer);

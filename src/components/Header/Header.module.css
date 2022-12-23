@@ -1,7 +1,7 @@
 .header{
     width: 100%;
-    height: 70px;
-    background-color: #fb4f14;
+    height: 100px;
+    background-color: #1A1A1D;
     position: fixed;
     display: flex;
     justify-content: center;
@@ -12,4 +12,5 @@
     font-weight: 900;
     font-family: 'Kanit', sans-serif;
     letter-spacing: 10px;
+    z-index: 100;
 }

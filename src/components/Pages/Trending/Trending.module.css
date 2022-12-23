@@ -1,0 +1,20 @@
+.trending{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.pageTitle{
+    display: flex;
+    text-transform: uppercase;
+    font-size: 4vw;
+    justify-content: center;
+    padding: 4px;
+    font-weight: 200;
+}
+@media (max-width: 1000px) {
+    .pageTitle{
+        font-size: 6.5vw;
+    }
+}
