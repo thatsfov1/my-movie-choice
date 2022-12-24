@@ -2,11 +2,11 @@ import './App.css'
 import SimpleBottomNavigation from "./components/Navigation/Navigation.jsx";
 import Header from "./components/Header/Header.jsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Series from "./components/Pages/Series/Series.jsx";
 import Search from "./components/Pages/Search/Search.jsx";
 import {Container} from "@mui/material";
 import TrendingContainer from "./components/Pages/Trending/TrendingContainer.jsx";
 import MoviesContainer from "./components/Pages/Movies/MoviesContainer.jsx";
+import SeriesContainer from "./components/Pages/Series/SeriesContainer.jsx";
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
             <Routes>
                 <Route path={'/'} element={<TrendingContainer/>}/>
                 <Route path={'/movies'} element={<MoviesContainer/>}/>
-                <Route path={'/series'} element={<Series/>}/>
+                <Route path={'/series'} element={<SeriesContainer/>}/>
                 <Route path={'/search'} element={<Search/>}/>
             </Routes>
         </Container>
