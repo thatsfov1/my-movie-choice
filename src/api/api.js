@@ -35,3 +35,12 @@ export const searchAPI = {
         return instance.get(`search/${type ? "tv" : "movie"}?api_key=${API_KEY}&language=en-US&query=${searchText}&page=${currentPage}&include_adult=false`)
     }
 }
+
+export const modalAPI = {
+    getSingleContent(media_type,id){
+        return instance.get(`${media_type}/${id}?api_key=${API_KEY}&language=en-US`)
+    },
+    getSingleContentLink(media_type,id){
+        return instance.get(`${media_type}/${id}/videos?api_key=${API_KEY}&language=en-US`)
+    }
+}

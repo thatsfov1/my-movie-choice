@@ -6,7 +6,6 @@ import useGenre from "../../../hooks/useGenre.js";
 
 const SeriesContainer = (props) => {
     const type = "tv"
-
     const onSeriesPageChange= (pageNumber)=>{
         props.setCurrentPage(pageNumber)
         window.scroll(0,0)

@@ -6,6 +6,7 @@ import {Container} from "@mui/material";
 import TrendingContainer from "./components/Pages/Trending/TrendingContainer.jsx";
 import MoviesContainer from "./components/Pages/Movies/MoviesContainer.jsx";
 import SeriesContainer from "./components/Pages/Series/SeriesContainer.jsx";
+import SearchContainer from "./components/Pages/Search/SearchContainer.jsx";
 
 function App() {
 

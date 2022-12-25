@@ -3,7 +3,7 @@ import {searchAPI} from "../../api/api.js";
 const SET_SEARCH_RESULTS ="search-reducer/SET_SEARCH_RESULTS"
 const SET_RESULTS_TOTAL_COUNT = 'search-reducer/SET_RESULTS_TOTAL_COUNT'
 
-export const setSearchResults = (results) => ({type:SET_SEARCH_RESULTS, payload:{results}})
+export const setSearchResults = (searchResults) => ({type:SET_SEARCH_RESULTS, payload:{searchResults}})
 export const setResultsTotalCount = (resultsPagesTotalCount) => ({type:SET_RESULTS_TOTAL_COUNT, payload:{resultsPagesTotalCount}})
 
 
@@ -32,6 +32,8 @@ const searchReducer =(state = initialState,action)=>{
                 ...action.payload
             }
         }
+        default:
+            return state
     }
 }
 
