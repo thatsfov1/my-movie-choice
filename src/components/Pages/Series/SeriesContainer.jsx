@@ -12,7 +12,6 @@ const SeriesContainer = (props) => {
         window.scroll(0,0)
     }
 
-
     const [selectedGenre,setSelectedGenre] = useState([])
 
     const genreforURL = useGenre(selectedGenre)

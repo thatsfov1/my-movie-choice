@@ -29,3 +29,9 @@ export const seriesAPI ={
         return instance.get(`discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${currentPage}&with_genres=${genreforURL}`)
     },
 }
+
+export const searchAPI = {
+    toSearch(type,searchText,currentPage = 1){
+        return instance.get(`search/${type ? "tv" : "movie"}?api_key=${API_KEY}&language=en-US&query=${searchText}&page=${currentPage}&include_adult=false`)
+    }
+}

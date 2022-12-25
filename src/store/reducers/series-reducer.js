@@ -13,8 +13,6 @@ export const setCurrentPage  = (currentPage) =>({type:SET_CURRENT_PAGE, payload:
 export const setSeriesPagesTotalCount  = (seriesPagesTotalCount) =>({type:SET_SERIES_PAGES_TOTAL_COUNT, payload:{seriesPagesTotalCount}})
 
 
-
-
 export const requestSeries =(currentPage,genreforURL) =>{
     return async (dispatch) =>{
         const response = await seriesAPI.getSeries(currentPage,genreforURL)
