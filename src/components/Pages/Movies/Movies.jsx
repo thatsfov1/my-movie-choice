@@ -15,7 +15,7 @@ const Movies = ({onMoviePageChange,movies,moviesPagesTotalCount,genres,setGenres
         />
         <div className={classes.trending} >{movies && movies.map(t => <SingleContent key={t.id} id={t.id}
                                                                                                      adult={t.adult} backdrop_path={t.backdrop_path}
-                                                                                                     title={t.title} media_type={"Movie"}
+                                                                                                     title={t.title} media_type={"movie"}
                                                                                                      original_language={t.original_language}
                                                                                                      original_title={t.original_title}
                                                                                                      popularity={t.popularity} poster={t.poster_path}

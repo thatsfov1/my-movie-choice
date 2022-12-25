@@ -7,6 +7,7 @@ import TrendingContainer from "./components/Pages/Trending/TrendingContainer.jsx
 import MoviesContainer from "./components/Pages/Movies/MoviesContainer.jsx";
 import SeriesContainer from "./components/Pages/Series/SeriesContainer.jsx";
 import SearchContainer from "./components/Pages/Search/SearchContainer.jsx";
+import ContentDataContainer from "./components/ContentData/ContentDataContainer.jsx";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                 <Route path={'/movies'} element={<MoviesContainer/>}/>
                 <Route path={'/series'} element={<SeriesContainer/>}/>
                 <Route path={'/search'} element={<SearchContainer/>}/>
+                <Route path={'/content/:media_type/:id'} element={<ContentDataContainer/>}/>
             </Routes>
         </Container>
     </div>

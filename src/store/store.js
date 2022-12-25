@@ -4,13 +4,15 @@ import thunk from 'redux-thunk'
 import moviesReducer from "./reducers/movies-reducer.js";
 import seriesReducer from "./reducers/series-reducer.js";
 import searchReducer from "./reducers/search-reducer.js";
+import modalReducer from "./reducers/modal-reducer.js";
 
 
 const reducers = combineReducers({
     trending:trendingReducer,
     movies:moviesReducer,
     series:seriesReducer,
-    search:searchReducer
+    search:searchReducer,
+    single:modalReducer
 })
 
 

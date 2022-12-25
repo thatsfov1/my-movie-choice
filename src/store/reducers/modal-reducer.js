@@ -10,14 +10,14 @@ const getContentVideo = (contentVideo) => ({type: GET_CONTENT_VIDEO, payload: {c
 
 export const requestSingleContent = (media_type, id) => {
     return async (dispatch) => {
-        const response = modalAPI.getSingleContent(media_type, id)
+        const response = await modalAPI.getSingleContent(media_type, id)
         dispatch(getContentData(response.data))
     }
 }
 
 export const requestSingleVideo = (media_type,id) =>{
     return async (dispatch) =>{
-        const response = modalAPI.getSingleContentLink(media_type,id)
+        const response = await modalAPI.getSingleContentLink(media_type,id)
         dispatch(getContentVideo(response.data.results[0]?.key))
     }
 }
@@ -37,5 +37,9 @@ const modalReducer = (state = initialState, action) => {
                 ...action.payload
             }
         }
+        default:
+            return state
     }
 }
+
+export default modalReducer
