@@ -6,9 +6,11 @@ const SET_MOVIES_PAGES_TOTAL_COUNT = "movies-reducer/SET_MOVIES_PAGES_TOTAL_COUN
 const SET_GENRES = "movies-reducer/SET_GENRES"
 
 
+
 export const setMovies  = (movies) =>({type:SET_MOVIES, payload :{movies}})
 export const setGenres  = (genres) =>({type:SET_GENRES, payload:{genres}})
 export const setCurrentPage  = (currentPage) =>({type:SET_CURRENT_PAGE, payload:{currentPage}})
+
 export const setMoviesPagesTotalCount  = (moviesPagesTotalCount) =>({type:SET_MOVIES_PAGES_TOTAL_COUNT, payload:{moviesPagesTotalCount} })
 
 
@@ -30,11 +32,14 @@ export const requestGenres =(type) =>{
 
 
 
+
+
 const initialState ={
     movies:[],
     currentPage:1,
     moviesPagesTotalCount:0,
-    genres:[]
+    genres:[],
+
 }
 
 const moviesReducer= (state = initialState,action)=>{

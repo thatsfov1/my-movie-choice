@@ -4,4 +4,83 @@
     border: 2px solid #c6c6c6;
     border-radius: 5px;
     margin: 0px auto;
+    padding: 10px;
+    display: flex;
+}
+
+.picture img{
+    width: 400px;
+    border-radius: 2px;
+}
+
+.description{
+    width: 100%;
+    text-align: center;
+}
+
+.title{
+    font-size: 28px;
+}
+
+.overview{
+    margin: 15px;
+    padding: 15px;
+    border: 1px solid darkgrey;
+}
+
+.category{
+    font-weight: 600;
+}
+
+.categoryValues{
+    font-weight: 200;
+}
+
+.movieInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 15px;
+}
+
+.rating{
+    display: flex;
+    align-items: center;
+}
+
+.carouselItem img{
+    width: 170px;
+}
+
+.carouselItem{
+    width: 100%;
+    text-align: center;
+    border: none;
+    transition: transform .3s;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.carouselItem a{
+    color: #1A1A1D;
+    text-decoration: none;
+}
+
+.carouselItem:hover{
+    transform: scale(1.01);
+
+}
+
+.recommend{
+    font-weight: 200;
+    font-size: 32px;
+}
+
+.recommendation{
+    margin-top: 20px;
+}
+
+.carouselContainer a{
+    color: #1A1A1D;
+    text-decoration: none;
 }
