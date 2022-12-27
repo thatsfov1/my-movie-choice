@@ -2,9 +2,6 @@ import React, {useEffect} from 'react';
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import {useNavigate} from "react-router-dom";
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import MovieIcon from '@mui/icons-material/Movie';
@@ -26,6 +23,7 @@ export default function SimpleBottomNavigation() {
         }else if (value === 3){
             navigate('/search')
         }
+        window.scroll(0,0)
     },[value])
 
     return (
@@ -36,7 +34,6 @@ export default function SimpleBottomNavigation() {
                 bottom:0,
                 width:"100%",
                 zIndex:100
-
             }}
                 showLabels
                 value={value}

@@ -1,11 +1,16 @@
 .container{
-    width: 100%;
+    max-width: 100%;
     height: 80%;
     border: 2px solid #c6c6c6;
     border-radius: 5px;
     margin: 0px auto;
     padding: 10px;
     display: flex;
+    justify-content: space-between;
+}
+
+.picture{
+    width: 30%;
 }
 
 .picture img{
@@ -14,7 +19,7 @@
 }
 
 .description{
-    width: 100%;
+    width: 63%;
     text-align: center;
 }
 
@@ -26,6 +31,13 @@
     margin: 15px;
     padding: 15px;
     border: 1px solid darkgrey;
+}
+
+@media (max-width: 1170px) {
+    .description{
+        width: 50%;
+        margin-right: 50px;
+    }
 }
 
 .category{
@@ -46,6 +58,7 @@
 .rating{
     display: flex;
     align-items: center;
+    margin-top: 5px;
 }
 
 .carouselItem img{
@@ -53,18 +66,17 @@
 }
 
 .carouselItem{
+    padding-right: 20px;
+    object-fit: contain;
     width: 100%;
     text-align: center;
     border: none;
     transition: transform .3s;
     cursor: pointer;
     margin-top: 20px;
+
 }
 
-.carouselItem a{
-    color: #1A1A1D;
-    text-decoration: none;
-}
 
 .carouselItem:hover{
     transform: scale(1.01);
@@ -83,4 +95,17 @@
 .carouselContainer a{
     color: #1A1A1D;
     text-decoration: none;
+    padding-right: 10px;
+}
+
+.carousel_act_container{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.carousel_act_item img{
+    width: 150px;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px ;
 }

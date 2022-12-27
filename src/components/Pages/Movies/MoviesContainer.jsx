@@ -9,6 +9,8 @@ const MoviesContainer = (props) => {
 
     const type = "movie"
 
+    const [sort_by,setSortBy] = useState('popularity.desc')
+
     const [selectedGenre, setSelectedGenre] = useState([])
     const genreforURL = useGenre(selectedGenre)
 
@@ -18,8 +20,8 @@ const MoviesContainer = (props) => {
     }
 
     useEffect(() => {
-        props.requestMovies(props.currentPage, genreforURL)
-    }, [props.currentPage, genreforURL])
+        props.requestMovies(props.currentPage, genreforURL,sort_by)
+    }, [props.currentPage, genreforURL,sort_by])
 
     useEffect(() => {
         props.requestGenres(type)
@@ -35,6 +37,7 @@ const MoviesContainer = (props) => {
                     setGenres={props.setGenres}
                     selectedGenre={selectedGenre}
                     setSelectedGenre={setSelectedGenre}
+                    setSortBy={setSortBy}
             />
         </div>
     )

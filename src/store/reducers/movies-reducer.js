@@ -14,10 +14,9 @@ export const setCurrentPage  = (currentPage) =>({type:SET_CURRENT_PAGE, payload:
 export const setMoviesPagesTotalCount  = (moviesPagesTotalCount) =>({type:SET_MOVIES_PAGES_TOTAL_COUNT, payload:{moviesPagesTotalCount} })
 
 
-
-export const requestMovies =(currentPage,genreforURL) =>{
+export const requestMovies =(currentPage,genreforURL,sort_by) =>{
     return async (dispatch)=>{
-        const response = await moviesAPI.getMovies(currentPage,genreforURL)
+        const response = await moviesAPI.getMovies(currentPage,genreforURL,sort_by)
         dispatch(setMovies(response.data.results))
         dispatch(setMoviesPagesTotalCount(response.data.total_pages))
     }

@@ -19,9 +19,9 @@ const responsive = {
     }
 }
 
-const Carousel = ({recommend}) => {
+const CarouselRec = ({recommend}) => {
     const items = recommend.map(content => (
-        <div className={classes.carouselContainer}>
+        <div className={classes.carouselContainer} onClick={window.scroll(0,0)}>
             <NavLink to={`/content/${content.media_type}/${content.id}`}>
                 <div className={classes.carouselItem}>
                     <img src={content.poster_path ? `${img_300}/${content.poster_path}` : unavailable}
@@ -37,4 +37,4 @@ const Carousel = ({recommend}) => {
     );
 }
 
-export default Carousel
+export default CarouselRec

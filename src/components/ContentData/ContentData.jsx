@@ -5,9 +5,10 @@ import Rating from "@mui/material/Rating";
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import {Button} from "@mui/material";
 import ContentInfo from "./ContentInfo.jsx";
-import Carousel from "./Carousel";
+import CarouselRec from "./CarouselRec.jsx";
+import CarouselAct from "./CarouselAct.jsx";
 
-const ContentData = ({contentVideo, contentData,recommend}) => {
+const ContentData = ({contentVideo, contentData,recommend,credits}) => {
 
     return ( <div>
         <div className={classes.container}>
@@ -47,6 +48,7 @@ const ContentData = ({contentVideo, contentData,recommend}) => {
                 {contentData.overview && <div className={classes.overview}>
                     {contentData.overview}
                 </div>}
+                <CarouselAct credits={credits}/>
                 {contentVideo && <Button variant="contained" disableElevation color="secondary" target="_blank"
                                          href={`https://www.youtube.com/watch?v=${contentVideo}`}>
                     <YouTubeIcon/> Watch the trailer
@@ -56,7 +58,7 @@ const ContentData = ({contentVideo, contentData,recommend}) => {
             {recommend.length>1 && <div className={classes.recommendation}>
                 <div className={classes.recommend}>Recommendations</div>
                 <div>
-                    <Carousel recommend={recommend}/>
+                    <CarouselRec recommend={recommend}/>
                 </div>
             </div>}
         </div>

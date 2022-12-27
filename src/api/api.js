@@ -13,11 +13,14 @@ export const trendingAPI={
 }
 
 export const moviesAPI={
-    getMovies(currentPage = 1,genreforURL){
-        return instance.get(`discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${currentPage}&with_genres=${genreforURL}`)
+    getMovies(currentPage = 1,genreforURL,sort_by ='popularity.desc'){
+        return instance.get(`discover/movie?api_key=${API_KEY}&language=en-US&sort_by=${sort_by}&include_adult=false&include_video=false&page=${currentPage}&with_genres=${genreforURL}`)
     },
     getRecommendation(media_type,id){
         return instance.get(`${media_type}/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`)
+    } ,
+    getCredits(media_type,id){
+        return instance.get(`${media_type}/${id}/credits?api_key=${API_KEY}&language=en-US`)
     }
 }
 
