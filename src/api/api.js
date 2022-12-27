@@ -31,8 +31,8 @@ export const genresAPI  ={
 }
 
 export const seriesAPI ={
-    getSeries(currentPage = 1,genreforURL){
-        return instance.get(`discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${currentPage}&with_genres=${genreforURL}`)
+    getSeries(currentPage = 1,genreforURL,sort_by ='popularity.desc'){
+        return instance.get(`discover/tv?api_key=${API_KEY}&language=en-US&sort_by=${sort_by}&include_adult=false&include_video=false&page=${currentPage}&with_genres=${genreforURL}`)
     },
 }
 

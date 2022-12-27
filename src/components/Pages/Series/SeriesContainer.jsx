@@ -11,13 +11,15 @@ const SeriesContainer = (props) => {
         window.scroll(0,0)
     }
 
+    const [sort_by,setSortBy] = useState('popularity.desc')
+
     const [selectedGenre,setSelectedGenre] = useState([])
 
     const genreforURL = useGenre(selectedGenre)
 
     useEffect(()=>{
-        props.requestSeries(props.currentPage,genreforURL)
-    },[props.currentPage,genreforURL])
+        props.requestSeries(props.currentPage,genreforURL,sort_by)
+    },[props.currentPage,genreforURL,sort_by])
 
     useEffect(()=>{
         props.requestGenres(type)
@@ -33,6 +35,7 @@ const SeriesContainer = (props) => {
               selectedGenre={selectedGenre}
               setSelectedGenre={setSelectedGenre}
               setGenres={props.setGenres}
+              setSortBy={setSortBy}
       />
     </div>
   )

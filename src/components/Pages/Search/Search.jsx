@@ -1,9 +1,10 @@
 import React, {useState} from "react";
-import PaginationRounded from "../../Pagination/Pagination.jsx";
+import PaginationRounded from "../PagesItems/Pagination.jsx";
 import classes from "../Trending/Trending.module.css";
 import SingleContent from "../../SingleContent/SingleContent.jsx";
-import {Button, Tab, Tabs, TextField} from "@mui/material";
+import {Button, createTheme, Tab, Tabs, TextField, ThemeProvider} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
+import MapToSingleContent from "../PagesItems/MapToSingleContent.jsx";
 
 const Search = ({
                     searchResults,
@@ -15,7 +16,16 @@ const Search = ({
                     onSearchPageChange,
                     searchText
                 }) => {
+
+    const theme = createTheme({
+        palette:{
+            primary:{
+                main:'rgba(0,0,0,0.8)'
+            }
+        }
+    })
     return <div>
+        <ThemeProvider  theme={theme}>
         <div style={{display: "flex", margin: "15px 0"}}>
             <TextField
                 variant="outlined"
@@ -24,7 +34,10 @@ const Search = ({
                 onChange={(e) => setSearchText(e.target.value)}
             />
             <Button variant="contained"
-                    style={{marginLeft: 15}}>
+                    style={{marginLeft: 15}}
+                    color="primary"
+            >
+
                 <SearchIcon/>
             </Button>
         </div>
@@ -38,23 +51,12 @@ const Search = ({
             <Tab style={{width: '50%'}} label="Movies"/>
             <Tab style={{width: '50%'}} label="Series"/>
         </Tabs>
-        <div className={classes.trending}>{searchText && searchResults && searchResults.map(t => <SingleContent
-            key={t.id} id={t.id}
-            adult={t.adult} backdrop_path={t.backdrop_path}
-            title={t.title || t.name} media_type={type ? 'tv' : 'movie'}
-            original_language={t.original_language}
-            original_title={t.original_title || t.original_name}
-            popularity={t.popularity} poster={t.poster_path}
-            date={t.release_date || t.first_air_date}
-            vote_average={t.vote_average}
-            vote_count={t.vote_count}
-
-        />)}
-        </div>
+            {searchText && searchResults && <MapToSingleContent content={searchResults} media_type={type ? 'tv' : 'movie'}/> }
         {searchText && <PaginationRounded pagesCount={resultsPagesTotalCount}
                                           onPageChange={onSearchPageChange}/>}
         {searchText && !searchResults && (type ? <h2> No Series Found</h2> : <h2>No Movies Found</h2>)}
         {!searchText && (type ? <h2>Find the TV Series</h2> : <h2>Find the Movie</h2>)}
+        </ThemeProvider>
     </div>;
 
 }

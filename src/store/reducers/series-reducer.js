@@ -13,9 +13,9 @@ export const setCurrentPage  = (currentPage) =>({type:SET_CURRENT_PAGE, payload:
 export const setSeriesPagesTotalCount  = (seriesPagesTotalCount) =>({type:SET_SERIES_PAGES_TOTAL_COUNT, payload:{seriesPagesTotalCount}})
 
 
-export const requestSeries =(currentPage,genreforURL) =>{
+export const requestSeries =(currentPage,genreforURL,sort_by) =>{
     return async (dispatch) =>{
-        const response = await seriesAPI.getSeries(currentPage,genreforURL)
+        const response = await seriesAPI.getSeries(currentPage,genreforURL,sort_by)
         dispatch(setSeries(response.data.results))
         dispatch(setSeriesPagesTotalCount(response.data.total_pages))
     }

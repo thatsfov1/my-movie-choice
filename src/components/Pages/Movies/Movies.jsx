@@ -1,19 +1,15 @@
 import React, {useEffect, useState} from "react";
 import classes from "../Trending/Trending.module.css";
-import SingleContent from "../../SingleContent/SingleContent.jsx";
-import PaginationRounded from "../../Pagination/Pagination.jsx";
-import Genres from "./Genres.jsx";
+import PaginationRounded from "../PagesItems/Pagination.jsx";
+import Genres from "../PagesItems/Genres.jsx";
+import Select from "../PagesItems/Select.jsx";
+import MapToSingleContent from "../PagesItems/MapToSingleContent.jsx";
+
 
 
 const Movies = ({onMoviePageChange,movies,moviesPagesTotalCount,
                     genres,setGenres,setCurrentPage,setSelectedGenre,
                     selectedGenre,setSortBy}) => {
-
-
-
-    const handleSelectChange =(selectValue) =>{
-       setSortBy(selectValue)
-    }
 
     return <div>
         <div className={classes.pageTitle}>Movies</div>
@@ -23,25 +19,11 @@ const Movies = ({onMoviePageChange,movies,moviesPagesTotalCount,
                 selectedGenre={selectedGenre}
                 setSelectedGenre={setSelectedGenre}
         />
-        <div>
-            Sort by
-            <select onChange={e => handleSelectChange(e.target.value)}>
-                <option value='vote_average.desc' >Top Rated</option>
-                <option value='release_date.desc'>Latest</option>
-                <option value='vote_count.desc'>Most users rating</option>
-            </select>
-        </div>
-        <div className={classes.trending} >{movies && movies.map(t => <SingleContent key={t.id} id={t.id}
-                                                                                                     adult={t.adult} backdrop_path={t.backdrop_path}
-                                                                                                     title={t.title} media_type={"movie"}
-                                                                                                     original_language={t.original_language}
-                                                                                                     original_title={t.original_title}
-                                                                                                     popularity={t.popularity} poster={t.poster_path}
-                                                                                                     date={t.release_date}
-                                                                                                     vote_average={t.vote_average}
-                                                                                                     vote_count={t.vote_count}
 
-        />)}</div>
+        <Select setSortBy={setSortBy} setCurrentPage={setCurrentPage} dateValue="release_date.desc" revenue/>
+
+        <MapToSingleContent content={movies} media_type={"movie"}/>
+
         <PaginationRounded  pagesCount={moviesPagesTotalCount}
                            onPageChange={onMoviePageChange}/>
     </div>;

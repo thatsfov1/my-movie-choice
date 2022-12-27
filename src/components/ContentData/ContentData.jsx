@@ -16,7 +16,7 @@ const ContentData = ({contentVideo, contentData,recommend,credits}) => {
                 {<img src={contentData.poster_path ? `${img_500}/${contentData.poster_path}` : unavailable}/>}
                 <div className={classes.rating}>
                     Users Rating({contentData.vote_count}): <Rating name="read-only" value={contentData.vote_average}
-                                                                    readOnly max={10} precision={0.05}  />
+                                                                    readOnly max={10} precision={0.1}  />
 
                 </div>
             </div>
