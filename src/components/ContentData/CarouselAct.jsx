@@ -7,13 +7,17 @@ import {img_300, noPicture} from "../../config/config.js";
 const handleDragStart = (e) => e.preventDefault();
 
 const responsive = {
-    0: {
-        items: 2
-    },
-    512: {
-        items: 3
+    0:{
+        items:1
     },
 
+    375: {
+        items: 2
+    },
+
+    985: {
+        items: 3
+    },
     1170: {
         items: 4
     }

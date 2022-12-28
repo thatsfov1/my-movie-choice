@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {connect} from "react-redux";
-import {requestGenres, requestMovies, setCurrentPage, setGenres} from "../../../store/reducers/movies-reducer.js";
+import {requestGenres, requestMovies, setGenres} from "../../../store/reducers/movies-reducer.js";
 import Movies from "./Movies.jsx";
 import useGenre from "../../../hooks/useGenre.js";
 
@@ -10,18 +10,19 @@ const MoviesContainer = (props) => {
     const type = "movie"
 
     const [sort_by,setSortBy] = useState('popularity.desc')
+    const [currentPage,setCurrentPage] = useState(1)
 
     const [selectedGenre, setSelectedGenre] = useState([])
     const genreforURL = useGenre(selectedGenre)
 
     const onMoviePageChange = (pageNumber) => {
-        props.setCurrentPage(pageNumber)
+        setCurrentPage(pageNumber)
         window.scroll(0, 0)
     }
 
     useEffect(() => {
-        props.requestMovies(props.currentPage, genreforURL,sort_by)
-    }, [props.currentPage, genreforURL,sort_by])
+        props.requestMovies(currentPage, genreforURL,sort_by)
+    }, [currentPage, genreforURL,sort_by])
 
     useEffect(() => {
         props.requestGenres(type)
@@ -33,7 +34,7 @@ const MoviesContainer = (props) => {
                     onMoviePageChange={onMoviePageChange}
                     moviesPagesTotalCount={props.moviesPagesTotalCount}
                     genres={props.genres}
-                    setCurrentPage={props.setCurrentPage}
+                    setCurrentPage={setCurrentPage}
                     setGenres={props.setGenres}
                     selectedGenre={selectedGenre}
                     setSelectedGenre={setSelectedGenre}
@@ -46,10 +47,9 @@ const MoviesContainer = (props) => {
 const mapStateToProps = (state) => {
     return {
         movies: state.movies.movies,
-        currentPage: state.movies.currentPage,
         moviesPagesTotalCount: state.movies.moviesPagesTotalCount,
         genres: state.movies.genres
     }
 }
 
-export default connect(mapStateToProps, {requestMovies, setCurrentPage, requestGenres, setGenres})(MoviesContainer)
+export default connect(mapStateToProps, {requestMovies, requestGenres, setGenres})(MoviesContainer)

@@ -1,15 +1,12 @@
 import {trendingAPI} from "../../api/api.js";
 
 
-const SET_TRENDING_MOVIES = 'SET_TRENDING_MOVIES'
-const SET_TRENDING_MOVIES_PAGES_TOTAL_COUNT = 'SET_TRENDING_MOVIES_PAGES_TOTAL_COUNT'
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
+const SET_TRENDING_MOVIES = 'trending-reducer/SET_TRENDING_MOVIES'
+const SET_TRENDING_MOVIES_PAGES_TOTAL_COUNT = 'trending-reducer/SET_TRENDING_MOVIES_PAGES_TOTAL_COUNT'
 
 
-
-export const setTrendingMovies = (movies) =>({type:SET_TRENDING_MOVIES, movies})
-export const setTrendingMoviesPagesTotalCount = (moviesPagesCount) =>({type:SET_TRENDING_MOVIES_PAGES_TOTAL_COUNT, moviesPagesCount})
-export const setCurrentPage = (currentPage) => ({type:SET_CURRENT_PAGE, currentPage})
+export const setTrendingMovies = (trendingMovies) =>({type:SET_TRENDING_MOVIES, payload:{trendingMovies}})
+export const setTrendingMoviesPagesTotalCount = (trendingMoviesPagesTotalCount) =>({type:SET_TRENDING_MOVIES_PAGES_TOTAL_COUNT, payload:{trendingMoviesPagesTotalCount}})
 
 
 export const requestTrending = (currentPage) => async (dispatch) =>{
@@ -22,27 +19,16 @@ export const requestTrending = (currentPage) => async (dispatch) =>{
 const initialState = {
     trendingMovies:[],
     trendingMoviesPagesTotalCount:[],
-    currentPage:1
 }
 
 const trendingReducer = (state = initialState,action) =>{
     switch (action.type){
-        case SET_TRENDING_MOVIES:{
+        case SET_TRENDING_MOVIES:
+        case SET_TRENDING_MOVIES_PAGES_TOTAL_COUNT:
+        {
             return{
                 ...state,
-                trendingMovies:action.movies
-            }
-        }
-        case SET_TRENDING_MOVIES_PAGES_TOTAL_COUNT:{
-            return{
-                ...state,
-                trendingMoviesPagesTotalCount:action.moviesPagesCount
-            }
-        }
-        case SET_CURRENT_PAGE:{
-            return{
-                ...state,
-                currentPage:action.currentPage
+                ...action.payload
             }
         }
         default:

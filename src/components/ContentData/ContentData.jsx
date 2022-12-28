@@ -3,14 +3,21 @@ import classes from "./ContentData.module.css"
 import {img_500, unavailable} from "../../config/config.js";
 import Rating from "@mui/material/Rating";
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import {Button} from "@mui/material";
+import {Button, IconButton} from "@mui/material";
 import ContentInfo from "./ContentInfo.jsx";
 import CarouselRec from "./CarouselRec.jsx";
 import CarouselAct from "./CarouselAct.jsx";
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import {useNavigate} from "react-router-dom";
 
 const ContentData = ({contentVideo, contentData,recommend,credits}) => {
 
+    const navigate = useNavigate()
+
     return ( <div>
+            <IconButton className={classes.previous} aria-label="delete" onClick={() => navigate(-1)}>
+                <ArrowBackIosNewIcon />
+            </IconButton>
         <div className={classes.container}>
             <div className={classes.picture}>
                 {<img src={contentData.poster_path ? `${img_500}/${contentData.poster_path}` : unavailable}/>}
@@ -30,8 +37,6 @@ const ContentData = ({contentVideo, contentData,recommend,credits}) => {
                     {contentData.tagline && <i>{contentData.tagline}</i>}
                 </div>
                 <div className={classes.movieInfo}>
-                    {contentData.title !== contentData.original_title &&
-                        <div>Original title :{contentData.original_title}</div>}
                     {contentData.genres && contentData.genres.length > 0 && <span
                         className={classes.category}>
                         Genre: <span className={classes.categoryValues}>

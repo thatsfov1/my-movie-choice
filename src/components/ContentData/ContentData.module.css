@@ -10,11 +10,11 @@
 }
 
 .picture{
-    width: 30%;
+    width: 35%;
 }
 
 .picture img{
-    width: 400px;
+    width: 100%;
     border-radius: 2px;
 }
 
@@ -33,11 +33,31 @@
     border: 1px solid darkgrey;
 }
 
-@media (max-width: 1170px) {
+@media (max-width: 985px) {
     .description{
-        width: 50%;
-        margin-right: 50px;
+        width: 48%;
     }
+    .picture{
+        width: 47%;
+    }
+}
+
+@media(max-width: 850px){
+    .container{
+        flex-direction: column;
+    }
+    .description{
+        width: 100%;
+    }
+    .picture{
+        width: 100%;
+    }
+}
+
+@media(max-width: 445px){
+  .rating{
+      flex-direction: column;
+  }
 }
 
 .category{
@@ -77,10 +97,8 @@
 
 }
 
-
 .carouselItem:hover{
     transform: scale(1.01);
-
 }
 
 .recommend{
@@ -107,7 +125,7 @@
     width: 150px;
     height: 100%;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px ;
+    box-shadow: 0px 0px 3px ;
 }
 
 .carousel_act_title{

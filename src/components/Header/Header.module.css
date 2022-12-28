@@ -19,4 +19,31 @@
     .header{
         font-size: 2em;
     }
+    .header img{
+        width: 30px;
+    }
+}
+
+@media (max-width: 460px) {
+    .header{
+        font-size:28px;
+    }
+}
+
+@media (max-width: 423px) {
+    .header{
+        font-size:24px;
+        letter-spacing: 6px;
+    }
+    .header img{
+        width: 25px;
+    }
+}@media (max-width: 315px) {
+    .header{
+        font-size:20px;
+        letter-spacing: 3px;
+    }
+    .header img{
+        width: 20px;
+    }
 }
