@@ -15,6 +15,8 @@ export const requestResults =(type,searchText,currentPage)=>{
     }
 }
 
+
+
 const initialState = {
     searchResults:[],
     resultsPagesTotalCount:0

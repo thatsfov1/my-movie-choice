@@ -2,7 +2,6 @@ import React from "react";
 import PaginationRounded from "../PagesItems/Pagination.jsx";
 import MapToSingleContent from "../PagesItems/MapToSingleContent.jsx";
 import SearchField from "../PagesItems/SearchField.jsx";
-import classes from './Search.module.css'
 
 const Search = ({
                     searchResults,

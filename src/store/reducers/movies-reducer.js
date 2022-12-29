@@ -26,6 +26,7 @@ export const requestGenres =(type) =>{
     }
 }
 
+
 const initialState ={
     movies:[],
     moviesPagesTotalCount:0,
