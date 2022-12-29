@@ -19,29 +19,5 @@
     }
 }
 
-h2{
-    color: rgba(0,0,0,0.3);
-    font-size: 36px;
-    text-align: center;
-}
 
-.sort{
-    margin-top: 5px;
-    margin-left: 10px;
-}
 
-.sort_text{
-    color:#1A1A1D;
-    font-size: 18px;
-
-}
-
-.select{
-    margin-left: 5px;
-    padding: 7px;
-    padding-right: 10px;
-    outline: none;
-    border: 1px solid rgba(128, 128, 128, 0.2);
-    border-radius: 5px;
-    background-color: #fffafa;
-}
