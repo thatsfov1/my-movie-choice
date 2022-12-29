@@ -6,7 +6,6 @@ import useGenre from "../../../hooks/useGenre.js";
 
 
 const MoviesContainer = (props) => {
-
     const type = "movie"
 
     const [sort_by,setSortBy] = useState('popularity.desc')
