@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import classes from "../Trending/Trending.module.css";
 import PaginationRounded from "../PagesItems/Pagination.jsx";
 import Genres from "../PagesItems/Genres.jsx";
