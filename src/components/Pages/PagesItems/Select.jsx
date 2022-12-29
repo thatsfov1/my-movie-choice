@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from "./Select.module.css";
+import classes from "../Trending/Trending.module.css";
 
 const Select = ({setSortBy,setCurrentPage,dateValue,revenue}) => {
 
