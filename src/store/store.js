@@ -1,4 +1,4 @@
-import {applyMiddleware, combineReducers, legacy_createStore as createStore} from "redux";
+import {applyMiddleware, combineReducers, compose, legacy_createStore as createStore} from "redux";
 import trendingReducer from "./reducers/trending-reducer.js";
 import thunk from 'redux-thunk'
 import moviesReducer from "./reducers/movies-reducer.js";
