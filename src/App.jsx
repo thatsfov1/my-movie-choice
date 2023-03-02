@@ -1,33 +1,33 @@
 import './App.css'
 import SimpleBottomNavigation from "./components/Navigation/Navigation.jsx";
 import Header from "./components/Header/Header.jsx";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import {Container} from "@mui/material";
-import TrendingContainer from "./components/Pages/Trending/TrendingContainer.jsx";
-import MoviesContainer from "./components/Pages/Movies/MoviesContainer.jsx";
-import SeriesContainer from "./components/Pages/Series/SeriesContainer.jsx";
-import SearchContainer from "./components/Pages/Search/SearchContainer.jsx";
-import ContentDataContainer from "./components/ContentData/ContentDataContainer.jsx";
+import Trending from "./Pages/Trending/Trending.jsx";
+import Movies from "./Pages/Movies/Movies.jsx";
+import Series from "./Pages/Series/Series.jsx";
+import Search from "./Pages/Search/Search.jsx";
+import ContentData from "./components/ContentData/ContentData.jsx";
 
-function App() {
+const App = () => {
 
-  return ( <BrowserRouter>
+  return ( <>
       <Header/>
     <div className="app-wrapper">
         <Container>
             <Routes>
-                <Route path={'/'} element={<TrendingContainer/>}/>
-                <Route path={'/movies'} element={<MoviesContainer/>}/>
-                <Route path={'/series'} element={<SeriesContainer/>}/>
-                <Route path={'/search'} element={<SearchContainer/>}/>
-                <Route path={'/content/:media_type/:id'} element={<ContentDataContainer/>}/>
+                <Route path={'/'} element={<Trending/>}/>
+                <Route path={'/movies'} element={<Movies/>}/>
+                <Route path={'/series'} element={<Series/>}/>
+                <Route path={'/search'} element={<Search/>}/>
+                <Route path={'/content/:media_type/:id'} element={<ContentData/>}/>
             </Routes>
         </Container>
     </div>
       <SimpleBottomNavigation/>
 
 
-      </BrowserRouter>
+      </>
     )
 
 

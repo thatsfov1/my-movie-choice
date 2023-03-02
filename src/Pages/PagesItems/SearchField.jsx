@@ -1,8 +1,7 @@
 import React from 'react'
-import {Button, createTheme, Tab, Tabs, TextField, ThemeProvider} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search.js";
+import {createTheme, Tab, Tabs, TextField, ThemeProvider} from "@mui/material";
 
-const SearchField =  ({setSearchText,setType,setCurrentPage,type}) => {
+const SearchField =  ({setSearchQuery,setType,setPage,type}) => {
 
     const theme = createTheme({
         palette:{
@@ -19,21 +18,14 @@ const SearchField =  ({setSearchText,setType,setCurrentPage,type}) => {
                 variant="outlined"
                 label="Search"
                 style={{flex: 1}}
-                onChange={(e) => setSearchText(e.target.value)}
+                onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <Button variant="contained"
-                    style={{marginLeft: 15}}
-                    color="primary"
-            >
-
-                <SearchIcon/>
-            </Button>
         </div>
         <Tabs value={type} textColor='primary'
               indicatorColor='primary'
               onChange={(event, newValue) => {
                   setType(newValue)
-                  setCurrentPage(1)
+                  setPage(1)
               }}
         >
             <Tab style={{width: '50%'}} label="Movies"/>

@@ -1,12 +1,12 @@
 import React from 'react'
 import classes from "./Select.module.css";
 
-const Select = ({setSortBy,setCurrentPage,dateValue,revenue}) => {
+const Select = ({setSortBy,setPage,dateValue,revenue}) => {
 
 
     const handleSelectChange =(selectValue) =>{
         setSortBy(selectValue)
-        setCurrentPage(1)
+        setPage(1)
     }
 
   return (

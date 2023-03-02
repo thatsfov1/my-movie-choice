@@ -24,7 +24,7 @@ const responsive = {
 }
 
 const CarouselAct = ({credits}) => {
-    const items = credits.map(content => (
+    const items = credits?.map(content => (
         <div className={classes.carousel_act_container} >
                 <div className={classes.carousel_act_item}>
                     <img src={content.profile_path ? `${img_300}/${content.profile_path}` : noPicture}

@@ -1,28 +1,26 @@
 import React from 'react'
 import {Chip} from "@mui/material";
 
-const Genres = ({genres,setGenres,setCurrentPage,setSelectedGenre,selectedGenre}) => {
+const Genres = ({genres,setGenres,setPage,setSelectedGenres,selectedGenres}) => {
 
 
     const handleAdd = (genre)=>{
-        setSelectedGenre([...selectedGenre, genre])
-        setGenres(genres.filter(g=> g.id !== genre.id))
-        setCurrentPage(1)
+        setSelectedGenres([...selectedGenres, genre])
+        setGenres(genres.filter(g => g.id !== genre.id))
+        setPage(1)
     }
 
     const handleRemove = (genre)=>{
-        setSelectedGenre(
-            selectedGenre.filter(selected=> selected.id !== genre.id)
+        setSelectedGenres(
+            selectedGenres.filter(selected => selected.id !== genre.id)
         )
         setGenres([...genres, genre])
-        setCurrentPage(1)
+        setPage(1)
     }
 
     return (
-        <div style={{
-            padding:"6px"
-        }}>
-            { selectedGenre.map(genre=> <Chip
+        <div style={{padding:"6px"}}>
+            { selectedGenres.map(genre=> <Chip
                 key={genre.id}
                 label={genre.name}
                 style={{margin:2}}
@@ -30,13 +28,13 @@ const Genres = ({genres,setGenres,setCurrentPage,setSelectedGenre,selectedGenre}
                 color="primary"
                 onDelete={()=> handleRemove(genre)}
             />)}
-            {genres.map(genre=> <Chip
+            {genres && genres.map(genre=> <Chip
                 key={genre.id}
                 label={genre.name}
                 style={{margin:2}}
                 clickable
-                onClick={()=> handleAdd(genre)}
-            />)}
+                onClick={()=> handleAdd(genre)}/>)
+            }
 
         </div>
     )
