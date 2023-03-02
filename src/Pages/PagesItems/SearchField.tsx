@@ -1,7 +1,15 @@
 import React from 'react'
 import {createTheme, Tab, Tabs, TextField, ThemeProvider} from "@mui/material";
 
-const SearchField =  ({setSearchQuery,setType,setPage,type}) => {
+
+type Props = {
+    type:number
+    setSearchQuery: React.Dispatch<React.SetStateAction<string>>
+    setType: React.Dispatch<React.SetStateAction<number>>
+    setPage: React.Dispatch<React.SetStateAction<number>>
+}
+
+const SearchField =  ({setSearchQuery,setType,setPage,type}:Props) => {
 
     const theme = createTheme({
         palette:{
@@ -18,7 +26,7 @@ const SearchField =  ({setSearchQuery,setType,setPage,type}) => {
                 variant="outlined"
                 label="Search"
                 style={{flex: 1}}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e:React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
             />
         </div>
         <Tabs value={type} textColor='primary'

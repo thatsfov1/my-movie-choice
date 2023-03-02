@@ -1,26 +1,26 @@
 import React, {useEffect, useState} from "react";
-import classes from "./Trending.module.css";
-import PaginationRounded from "../PagesItems/Pagination.jsx";
-import MapToSingleContent from "../PagesItems/MapToSingleContent.jsx";
+import s from "./Trending.module.css";
+import PaginationRounded from "../PagesItems/Pagination.tsx";
+import MapToSingleContent from "../PagesItems/MapToSingleContent.tsx";
 import {useQuery} from "@tanstack/react-query";
-import {getTrending} from "../../api/api.js";
+import {getTrending} from "../../api/api";
 
 const Trending = () => {
 
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState<number>(1);
 
     const {data} = useQuery({
         queryKey:['trending', page],
         queryFn:() => getTrending(page)
     })
 
-   const onPageChange = (pageNum) => {
-       setPage(pageNum)
+   const onPageChange = (event:React.ChangeEvent<unknown>, value:number) => {
+       setPage(value)
        window.scroll(0,0)
    }
 
     return <div>
-        <div className={classes.pageTitle}>
+        <div className={s.pageTitle}>
             Trending
         </div>
 

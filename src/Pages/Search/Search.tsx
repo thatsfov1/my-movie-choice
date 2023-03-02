@@ -1,25 +1,24 @@
-import React, {useEffect, useState} from "react";
-import PaginationRounded from "../PagesItems/Pagination.jsx";
-import MapToSingleContent from "../PagesItems/MapToSingleContent.jsx";
-import SearchField from "../PagesItems/SearchField.jsx";
-import classes from './Search.module.css'
+import React, {useState} from "react";
+import PaginationRounded from "../PagesItems/Pagination.tsx";
+import MapToSingleContent from "../PagesItems/MapToSingleContent";
+import SearchField from "../PagesItems/SearchField.tsx";
 import {useQuery} from "@tanstack/react-query";
-import {toSearch} from "../../api/api.js";
-import {useDebounce} from "../../hooks/useDebounce.js";
+import {toSearch} from "../../api/api";
+import './Search.module.css'
+import {useDebounce} from "../../hooks/useDebounce.ts";
 
 const Search = () => {
 
 
-    const [page, setPage] = useState(1);
-    const [searchQuery, setSearchQuery] = useState('');
-    const [type, setType] = useState(0);
+    const [page, setPage] = useState<number>(1);
+    const [searchQuery, setSearchQuery] = useState<string>('');
+    const [type, setType] = useState<number>(0);
     const debouncedQuery = useDebounce(searchQuery)
 
-    const onSearchPageChange = (page) => {
-        setPage(page)
+    const onSearchPageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+        setPage(value)
         window.scroll(0,0)
     }
-
 
     const {data:searchResults} = useQuery({
         queryKey:['search',type,debouncedQuery,page],

@@ -1,13 +1,13 @@
 import './App.css'
-import SimpleBottomNavigation from "./components/Navigation/Navigation.jsx";
-import Header from "./components/Header/Header.jsx";
+import SimpleBottomNavigation from "./components/Navigation/Navigation.tsx";
+import Header from "./components/Header/Header.tsx";
 import { Route, Routes} from "react-router-dom";
 import {Container} from "@mui/material";
-import Trending from "./Pages/Trending/Trending.jsx";
-import Movies from "./Pages/Movies/Movies.jsx";
-import Series from "./Pages/Series/Series.jsx";
-import Search from "./Pages/Search/Search.jsx";
-import ContentData from "./components/ContentData/ContentData.jsx";
+import Trending from "./Pages/Trending/Trending.tsx";
+import Movies from "./Pages/Movies/Movies.tsx";
+import Series from "./Pages/Series/Series.tsx";
+import Search from "./Pages/Search/Search.tsx";
+import ContentData from "./components/ContentData/ContentData.tsx";
 
 const App = () => {
 

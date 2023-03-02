@@ -1,11 +1,10 @@
 import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import classes from './ContentData.module.css'
-import {img_300, unavailable} from "../../config/config.js";
+import s from './ContentData.module.css'
+import {img_300, unavailable} from "../../config/config.ts";
 import {NavLink} from "react-router-dom";
-
-const handleDragStart = (e) => e.preventDefault();
+import {Recommendations} from "../../models/models";
 
 const responsive = {
     0: {
@@ -19,14 +18,18 @@ const responsive = {
     }
 }
 
-const CarouselRec = ({recommend}) => {
+const Recommend = ({recommend}:{recommend:Recommendations[]}) => {
     const items = recommend.map(content => (
-        <div className={classes.carouselContainer} onClick={window.scroll(0,0)}>
+        <div className={s.carouselContainer} onClick={() => window.scroll(0,0)}>
             <NavLink to={`/content/${content.media_type}/${content.id}`}>
-                <div className={classes.carouselItem}>
-                    <img src={content.poster_path ? `${img_300}/${content.poster_path}` : unavailable}
+                <div className={s.carouselItem}>
+                    <img src={content.poster_path ?
+                        `${img_300}/${content.poster_path}` :
+                         unavailable}
                          alt={content.title}/>
-                    <div className={classes.carouselTitle}>{content.title || content.name}</div>
+                    <div className={s.carouselTitle}>
+                        {content.title || ''}
+                    </div>
                 </div>
             </NavLink>
         </div>
@@ -37,4 +40,4 @@ const CarouselRec = ({recommend}) => {
     );
 }
 
-export default CarouselRec
+export default Recommend

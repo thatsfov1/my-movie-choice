@@ -1,24 +1,25 @@
 import React, {useState} from "react";
-import classes from "../Trending/Trending.module.css";
-import Genres from "../PagesItems/Genres.jsx";
-import PaginationRounded from "../PagesItems/Pagination.jsx";
-import Select from "../PagesItems/Select.jsx";
-import MapToSingleContent from "../PagesItems/MapToSingleContent.jsx";
+import s from "../Trending/Trending.module.css";
+import Genres from "../PagesItems/Genres.tsx";
+import PaginationRounded from "../PagesItems/Pagination.tsx";
+import Select from "../PagesItems/Select.tsx";
+import MapToSingleContent from "../PagesItems/MapToSingleContent.tsx";
 import {useQuery} from "@tanstack/react-query";
-import useGenre from "../../hooks/useGenre.js";
-import {getGenres, getSeries} from "../../api/api.js";
+import useGenre from "../../hooks/useGenre.ts";
+import {getGenres, getSeries} from "../../api/api";
+import {Genre} from "../../models/models";
 
 
 const Series = () => {
 
-    const [page,setPage] = useState(1)
-    const [sort_by,setSortBy] = useState('popularity.desc')
-    const [selectedGenres,setSelectedGenres] = useState([])
-    const [genres,setGenres] = useState([])
+    const [page,setPage] = useState<number>(1)
+    const [sort_by,setSortBy] = useState<string>('popularity.desc')
+    const [selectedGenres,setSelectedGenres] = useState<Genre[]>([])
+    const [genres,setGenres] = useState<Genre[]>([])
     const genreforURL = useGenre(selectedGenres)
 
-    const onSeriesPageChange= (pageNumber)=>{
-        setPage(pageNumber)
+    const onSeriesPageChange= (event: React.ChangeEvent<unknown>, value: number)=>{
+        setPage(value)
         window.scroll(0,0)
     }
 
@@ -36,7 +37,7 @@ const Series = () => {
     })
 
     return <div>
-        <div className={classes.pageTitle}>Series</div>
+        <div className={s.pageTitle}>Series</div>
         <Genres genres={genres}
                 setPage={setPage}
                 setGenres={setGenres}

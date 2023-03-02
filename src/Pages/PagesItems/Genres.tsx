@@ -1,16 +1,26 @@
 import React from 'react'
 import {Chip} from "@mui/material";
+import {Genre} from "../../models/models.js";
 
-const Genres = ({genres,setGenres,setPage,setSelectedGenres,selectedGenres}) => {
+
+type Props = {
+    genres:Genre[],
+    setGenres: React.Dispatch<React.SetStateAction<Genre[]>>
+    setPage: React.Dispatch<React.SetStateAction<number>>
+    selectedGenres:Genre[],
+    setSelectedGenres: React.Dispatch<React.SetStateAction<Genre[]>>
+}
+
+const Genres = ({genres,setGenres,setPage,setSelectedGenres,selectedGenres}:Props) => {
 
 
-    const handleAdd = (genre)=>{
+    const handleAdd = (genre:Genre)=>{
         setSelectedGenres([...selectedGenres, genre])
         setGenres(genres.filter(g => g.id !== genre.id))
         setPage(1)
     }
 
-    const handleRemove = (genre)=>{
+    const handleRemove = (genre:Genre)=>{
         setSelectedGenres(
             selectedGenres.filter(selected => selected.id !== genre.id)
         )
@@ -35,7 +45,6 @@ const Genres = ({genres,setGenres,setPage,setSelectedGenres,selectedGenres}) => 
                 clickable
                 onClick={()=> handleAdd(genre)}/>)
             }
-
         </div>
     )
 }

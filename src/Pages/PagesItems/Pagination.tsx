@@ -2,7 +2,14 @@ import * as React from 'react';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
-const PaginationRounded = ({pagesCount, onPageChange}) => {
+
+type Props = {
+    onPageChange(event: React.ChangeEvent<unknown>, value: number): void,
+    pagesCount:number
+}
+
+
+const PaginationRounded = ({pagesCount, onPageChange}:Props) => {
     return (
         <div style={{
             width:"100%",
@@ -12,7 +19,7 @@ const PaginationRounded = ({pagesCount, onPageChange}) => {
         }}>
             <Stack spacing={2}>
                 <Pagination count={pagesCount} shape="rounded"
-                            onChange={(e) => onPageChange(e.target.textContent)}/>
+                            onChange={onPageChange}/>
             </Stack>
         </div>
     );

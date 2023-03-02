@@ -1,11 +1,18 @@
 import React from 'react'
 import classes from "./Select.module.css";
 
-const Select = ({setSortBy,setPage,dateValue,revenue}) => {
+type Props = {
+    setSortBy: React.Dispatch<React.SetStateAction<string>>
+    setPage: React.Dispatch<React.SetStateAction<number>>
+    dateValue:string
+    revenue?:boolean
+}
+
+const Select = ({setSortBy,setPage,dateValue,revenue}:Props) => {
 
 
-    const handleSelectChange =(selectValue) =>{
-        setSortBy(selectValue)
+    const handleSelectChange =(e: React.ChangeEvent<HTMLSelectElement>) =>{
+        setSortBy(e.target.value)
         setPage(1)
     }
 
@@ -13,7 +20,7 @@ const Select = ({setSortBy,setPage,dateValue,revenue}) => {
     <div>
         <div className={classes.sort}>
             <span className={classes.sort_text}>Sort by</span>
-            <select onChange={e => handleSelectChange(e.target.value)} className={classes.select}>
+            <select onChange={handleSelectChange} className={classes.select}>
                 <option value='popularity.desc' >Most Popular</option>
                 <option value={dateValue}>Latest</option>
                 <option value='vote_average.desc'>Biggest rating</option>
