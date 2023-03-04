@@ -8,6 +8,8 @@ import {useQuery} from "@tanstack/react-query";
 import useGenre from "../../hooks/useGenre.ts";
 import {getGenres, getSeries} from "../../api/api";
 import {Genre} from "../../models/models";
+import Preloader from "../../components/Preloader/Preloader";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 
 const Series = () => {
@@ -24,7 +26,7 @@ const Series = () => {
     }
 
 
-    const {data:series} = useQuery({
+    const {data:series, isLoading:isSeriesLoading, isError} = useQuery({
         queryKey:['series',page,genreforURL,sort_by ],
         queryFn:() => getSeries(page,genreforURL,sort_by )})
 
@@ -36,6 +38,8 @@ const Series = () => {
         }
     })
 
+
+
     return <div>
         <div className={s.pageTitle}>Series</div>
         <Genres genres={genres}
@@ -46,6 +50,8 @@ const Series = () => {
         />
         <Select setSortBy={setSortBy} setPage={setPage} dateValue="first_air_date.desc"/>
         <MapToSingleContent content={series?.results} media_type={"tv"}/>
+        {isSeriesLoading || areGenresLoading && <Preloader/>}
+        {isError && <ErrorPage/>}
         <PaginationRounded  pagesCount={series?.total_pages}
                             onPageChange={onSeriesPageChange}/>
     </div>;

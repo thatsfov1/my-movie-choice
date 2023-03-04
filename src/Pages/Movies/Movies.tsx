@@ -8,6 +8,8 @@ import {useQuery} from "@tanstack/react-query";
 import {getGenres, getMovies} from "../../api/api";
 import useGenre from "../../hooks/useGenre.ts";
 import {Genre} from "../../models/models";
+import Preloader from "../../components/Preloader/Preloader";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 
 
@@ -25,18 +27,19 @@ const Movies = () => {
         window.scroll(0, 0)
     }
 
-    const {data:movies} = useQuery({
+    const {data:movies, isLoading:isMoviesLoading, isError} = useQuery({
         queryKey:['movies',page,genreforURL,sort_by ],
         queryFn:() => getMovies(page,genreforURL,sort_by ),
 
     })
-    const { data:genresData} = useQuery({
+    const { data:genresData, isLoading:isGenresLoading} = useQuery({
         queryKey:['genres',page,genreforURL,sort_by ],
         queryFn:() => getGenres('movie'),
         onSuccess: (genres:Genre[]) => {
             setGenres(genres)
         }
     })
+
 
     return <div>
         <div className={classes.pageTitle}>Movies</div>
@@ -46,7 +49,8 @@ const Movies = () => {
                  selectedGenres={selectedGenres}
                  setSelectedGenres={setSelectedGenres}/>
         <Select setSortBy={setSortBy} setPage={setPage} dateValue="release_date.desc" revenue/>
-
+        {isMoviesLoading || isGenresLoading && <Preloader/>}
+        {isError && <ErrorPage/>}
         <MapToSingleContent content={movies?.results} media_type={"movie"}/>
 
         <PaginationRounded  pagesCount={movies?.total_pages}

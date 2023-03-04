@@ -1,15 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import s from "./Trending.module.css";
 import PaginationRounded from "../PagesItems/Pagination.tsx";
 import MapToSingleContent from "../PagesItems/MapToSingleContent.tsx";
 import {useQuery} from "@tanstack/react-query";
 import {getTrending} from "../../api/api";
+import Preloader from "../../components/Preloader/Preloader";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 const Trending = () => {
 
     const [page, setPage] = useState<number>(1);
 
-    const {data} = useQuery({
+    const {data, isLoading, isError} = useQuery({
         queryKey:['trending', page],
         queryFn:() => getTrending(page)
     })
@@ -23,7 +25,8 @@ const Trending = () => {
         <div className={s.pageTitle}>
             Trending
         </div>
-
+        {isLoading && <Preloader/>}
+        {isError && <ErrorPage/>}
         <MapToSingleContent content={data?.results} />
 
         <PaginationRounded pagesCount={data?.total_pages}

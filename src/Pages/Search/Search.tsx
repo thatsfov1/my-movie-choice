@@ -6,6 +6,7 @@ import {useQuery} from "@tanstack/react-query";
 import {toSearch} from "../../api/api";
 import './Search.module.css'
 import {useDebounce} from "../../hooks/useDebounce.ts";
+import Preloader from "../../components/Preloader/Preloader";
 
 const Search = () => {
 
@@ -20,10 +21,12 @@ const Search = () => {
         window.scroll(0,0)
     }
 
-    const {data:searchResults} = useQuery({
+    const {data:searchResults, isLoading} = useQuery({
         queryKey:['search',type,debouncedQuery,page],
         queryFn:() => toSearch(type,debouncedQuery,page)
     })
+
+
 
     return <div>
         <SearchField type={type} setSearchQuery={setSearchQuery} setType={setType} setPage={setPage}/>
@@ -34,6 +37,7 @@ const Search = () => {
                                           onPageChange={onSearchPageChange}/>}
         {searchQuery && !searchResults && (type ? <h2> No Series Found</h2> : <h2>No Movies Found</h2>)}
         {!searchQuery && (type ? <h2>Find the TV Series</h2> : <h2>Find the Movie</h2>)}
+        {isLoading && <Preloader/>}
     </div>;
 
 }

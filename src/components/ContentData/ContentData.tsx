@@ -12,6 +12,8 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
 import {getCredits, getItemLink, getRecommendation, getSingleItem} from "../../api/api";
 import {Genre} from "../../models/models";
+import Preloader from "../Preloader/Preloader";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 
 const ContentData = () => {
 
@@ -19,27 +21,30 @@ const ContentData = () => {
     const {media_type} = useParams()
     const navigate = useNavigate()
 
-    const {data:itemData} = useQuery({
+    const {data:itemData, isError:isItemError, isLoading:isItemLoading} = useQuery({
         queryKey:['single-item',media_type,id],
-        queryFn: () => getSingleItem(media_type,id)
+        queryFn: () => getSingleItem(media_type!,id!)
     })
 
-    const {data:itemCredits} = useQuery({
+    const {data:itemCredits, isError:isCreditsError, isLoading:isCreditsLoading} = useQuery({
         queryKey:['single-item-credits',media_type,id],
-        queryFn: () => getCredits(media_type,id)
+        queryFn: () => getCredits(media_type!,id!)
     })
 
-    const {data:itemRecommendations} = useQuery({
+    const {data:itemRecommendations, isError:isRecError, isLoading:isRecLoading} = useQuery({
         queryKey:['single-item-recommendations',media_type,id],
-        queryFn:() => getRecommendation(media_type,id)
+        queryFn:() => getRecommendation(media_type!,id!)
     })
 
-    const {data:itemLink} = useQuery({
+    const {data:itemLink, isError:isLinkError, isLoading:isLinkLoading} = useQuery({
         queryKey:['single-item-link',media_type,id],
-        queryFn: () => getItemLink(media_type,id)
+        queryFn: () => getItemLink(media_type!,id!)
     })
+
 
     return ( <div>
+            {isLinkLoading || isRecLoading || isCreditsLoading || isItemLoading && <Preloader/>}
+            {isLinkError || isRecError || isCreditsError || isItemError && <ErrorPage/>}
             <IconButton className={s.previous} aria-label="delete" onClick={() => navigate(-1)}>
                 <ArrowBackIosNewIcon />
             </IconButton>

@@ -14,12 +14,12 @@ export const getMovies = async (page = 1,genreforURL:string,sort_by ='popularity
     return data
 }
 
-export const getRecommendation = async (media_type:string,id:number) => {
+export const getRecommendation = async (media_type:string,id:string) => {
     const {data} = await instance.get(`${media_type}/${id}/recommendations?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&page=1`)
     return data.results
 }
 
-export const getCredits = async (media_type:string,id:number) => {
+export const getCredits = async (media_type:string,id:string) => {
     const {data} = await instance.get(`${media_type}/${id}/credits?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`)
     return data
 }
@@ -38,13 +38,13 @@ export const toSearch = async(type:number,searchQuery:string,page=1 ) => {
     return data
 }
 
-export const getSingleItem = async (media_type:string,id:number) =>{
+export const getSingleItem = async (media_type:string,id:string) =>{
     const data = await instance.get(`${media_type}/${id}?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`)
     return data.data
 }
 
 
-export const getItemLink = async (media_type:string,id:number) => {
+export const getItemLink = async (media_type:string,id:string) => {
     const {data} = await instance.get(`${media_type}/${id}/videos?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`)
     return data.results[0]?.key
 }
