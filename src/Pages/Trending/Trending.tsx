@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import s from "./Trending.module.css";
+import s from "./Trending.module.scss";
 import PaginationRounded from "../PagesItems/Pagination.tsx";
 import MapToSingleContent from "../PagesItems/MapToSingleContent.tsx";
 import {useQuery} from "@tanstack/react-query";

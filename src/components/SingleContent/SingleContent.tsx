@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./SingleContent.module.css";
+import s from "./SingleContent.module.scss";
 import {img_300, unavailable} from "../../config/config.ts";
 import {Badge} from "@mui/material";
 import {useNavigate} from "react-router-dom";

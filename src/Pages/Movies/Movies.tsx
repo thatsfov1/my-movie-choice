@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import classes from "../Trending/Trending.module.css";
+import classes from "../Trending/Trending.module.scss";
 import PaginationRounded from "../PagesItems/Pagination";
 import Genres from "../PagesItems/Genres";
 import Select from "../PagesItems/Select";

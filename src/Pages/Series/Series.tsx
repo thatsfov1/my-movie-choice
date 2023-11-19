@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import s from "../Trending/Trending.module.css";
+import s from "../Trending/Trending.module.scss";
 import Genres from "../PagesItems/Genres.tsx";
 import PaginationRounded from "../PagesItems/Pagination.tsx";
 import Select from "../PagesItems/Select.tsx";

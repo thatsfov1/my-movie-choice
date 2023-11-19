@@ -1,5 +1,5 @@
 import React from 'react'
-import s from "../Trending/Trending.module.css";
+import s from "../Trending/Trending.module.scss";
 import SingleContent from "../../components/SingleContent/SingleContent.tsx";
 import {Movie, Series} from "../../models/models";
 

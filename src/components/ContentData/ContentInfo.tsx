@@ -1,5 +1,5 @@
 import React from 'react'
-import s from "./ContentData.module.css";
+import s from "./ContentData.module.scss";
 import {Movie} from "../../models/models";
 
 type Props = {

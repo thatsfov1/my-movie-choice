@@ -4,7 +4,7 @@ import MapToSingleContent from "../PagesItems/MapToSingleContent";
 import SearchField from "../PagesItems/SearchField.tsx";
 import {useQuery} from "@tanstack/react-query";
 import {toSearch} from "../../api/api";
-import './Search.module.css'
+import './Search.module.scss'
 import {useDebounce} from "../../hooks/useDebounce.ts";
 import Preloader from "../../components/Preloader/Preloader";
 

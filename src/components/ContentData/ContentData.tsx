@@ -1,5 +1,5 @@
 import React from 'react'
-import s from "./ContentData.module.css"
+import s from "./ContentData.module.scss"
 import {img_500, unavailable} from "../../config/config.ts";
 import Rating from "@mui/material/Rating";
 import YouTubeIcon from '@mui/icons-material/YouTube';

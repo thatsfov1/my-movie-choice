@@ -1,7 +1,7 @@
 import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import s from './ContentData.module.css'
+import s from './ContentData.module.scss'
 import {img_300, unavailable} from "../../config/config.ts";
 import {NavLink} from "react-router-dom";
 import {Recommendations} from "../../models/models";
