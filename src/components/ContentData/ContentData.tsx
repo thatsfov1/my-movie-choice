@@ -1,6 +1,6 @@
 import React from 'react'
-import s from "./ContentData.module.scss"
-import {img_500, unavailable} from "../../config/config.ts";
+import s from "../../styles/ContentData.module.scss"
+import {img_500, unavailable} from "../../config/config";
 import Rating from "@mui/material/Rating";
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import {Button, IconButton} from "@mui/material";

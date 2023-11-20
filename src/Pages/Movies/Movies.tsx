@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import classes from "../Trending/Trending.module.scss";
+import classes from "../../styles/Trending.module.scss";
 import PaginationRounded from "../PagesItems/Pagination";
 import Genres from "../PagesItems/Genres";
 import Select from "../PagesItems/Select";
 import MapToSingleContent from "../PagesItems/MapToSingleContent";
 import {useQuery} from "@tanstack/react-query";
 import {getGenres, getMovies} from "../../api/api";
-import useGenre from "../../hooks/useGenre.ts";
+import useGenre from "../../hooks/useGenre";
 import {Genre} from "../../models/models";
 import Preloader from "../../components/Preloader/Preloader";
 import ErrorPage from "../ErrorPage/ErrorPage";
@@ -32,7 +32,7 @@ const Movies = () => {
         queryFn:() => getMovies(page,genreforURL,sort_by ),
 
     })
-    const { data:genresData, isLoading:isGenresLoading} = useQuery({
+    const { isLoading:isGenresLoading} = useQuery({
         queryKey:['genres',page,genreforURL,sort_by ],
         queryFn:() => getGenres('movie'),
         onSuccess: (genres:Genre[]) => {

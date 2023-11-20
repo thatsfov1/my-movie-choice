@@ -9,7 +9,7 @@ export const getTrending = async (page = 1) =>{
     return data
 }
 
-export const getMovies = async (page = 1,genreforURL:string,sort_by ='popularity.desc') =>{
+export const getMovies = async (page = 1,genreforURL:number,sort_by ='popularity.desc') =>{
     const {data} = await instance.get(`discover/movie?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&sort_by=${sort_by}&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`)
     return data
 }
@@ -28,7 +28,7 @@ export const getGenres = async (type:string) => {
     return data.genres
 }
 
-export const getSeries = async (page = 1,genreforURL:string,sort_by ='popularity.desc') =>{
+export const getSeries = async (page = 1,genreforURL:number,sort_by ='popularity.desc') =>{
     const {data} = await instance.get(`discover/tv?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&sort_by=${sort_by}&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`)
     return data
 }

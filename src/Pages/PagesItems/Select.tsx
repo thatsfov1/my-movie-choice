@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from "./Select.module.scss";
+import classes from "../../styles/Select.module.scss";
 
 type Props = {
     setSortBy: React.Dispatch<React.SetStateAction<string>>

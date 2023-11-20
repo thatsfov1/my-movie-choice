@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.js'
-import './index.css'
+import './styles/index.scss'
 import {QueryClient} from "@tanstack/react-query";
 import {QueryClientProvider} from "@tanstack/react-query";
 import {BrowserRouter} from "react-router-dom";

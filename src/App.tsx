@@ -1,4 +1,4 @@
-import './App.css'
+import './styles/App.scss'
 import SimpleBottomNavigation from "./components/Navigation/Navigation.tsx";
 import Header from "./components/Header/Header.tsx";
 import { Route, Routes} from "react-router-dom";

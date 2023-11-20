@@ -1,11 +1,11 @@
 import React from 'react'
-import s from "./ContentData.module.scss";
+import s from "../../styles/ContentData.module.scss";
 import {Movie} from "../../models/models";
 
 type Props = {
   text:string,
   add?:string,
-  content:string,
+  content:keyof Movie,
   contentData:Movie
 }
 

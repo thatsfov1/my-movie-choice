@@ -1,16 +1,19 @@
+@use 'mixins.scss' as m;
+@use 'fonts.scss' as f;
+
 .container{
-    display: flex;
-    flex-direction: column;
+    @include m.flexColumn();
     position: relative;
     width: 200px;
     padding: 5px;
     background-color: #1A1A1D;
-    color: white;
+    color: #fff;
     margin: 5px 0;
     transition: transform .2s;
     border-radius: 3px;
     &:hover{
         transform: scale(1.01);
+        cursor: pointer;
     }
 }
 
@@ -23,15 +26,14 @@
 .title{
     width: 100%;
     text-align: center;
-    font-size: 16px;
+    font-size: 1rem;
     padding: 8px 0;
 
 }
 
 .subtitle{
-    display: flex;
-    justify-content: space-between;
+    @include m.flexJustify(space-between);
     padding: 0 4px 3px 4px;
-    font-weight: 200;
+    font-weight: f.$fontThin;
 }
 

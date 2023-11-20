@@ -1,6 +1,6 @@
 import React from "react";
-import s from "./SingleContent.module.scss";
-import {img_300, unavailable} from "../../config/config.ts";
+import s from "../../styles/SingleContent.module.scss";
+import {img_300, unavailable} from "../../config/config";
 import {Badge} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 

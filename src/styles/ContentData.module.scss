@@ -1,3 +1,6 @@
+@use 'mixins.scss' as m;
+@use 'fonts.scss' as f;
+
 .container{
     max-width: 100%;
     height: 80%;
@@ -5,8 +8,7 @@
     border-radius: 5px;
     margin: 0 auto;
     padding: 10px;
-    display: flex;
-    justify-content: space-between;
+    @include m.flexJustify(space-between);
 }
 
 .picture{
@@ -17,14 +19,13 @@
     }
 }
 
-
 .description{
     width: 63%;
     text-align: center;
 }
 
 .title{
-    font-size: 28px;
+    font-size: 1.75rem;
 }
 
 .overview{
@@ -61,16 +62,15 @@
 }
 
 .category{
-    font-weight: 600;
+    font-weight: f.$fontBold;
 }
 
 .categoryValues{
-    font-weight: 200;
+    font-weight: f.$fontThin;
 }
 
 .movieInfo{
-    display: flex;
-    flex-direction: column;
+    @include m.flexColumn();
     align-items: start;
     margin: 15px;
 }
@@ -99,8 +99,8 @@
 }
 
 .recommend{
-    font-weight: 200;
-    font-size: 32px;
+    font-weight: f.$fontThin;
+    font-size: 2rem;
 }
 
 .recommendation{
@@ -126,7 +126,7 @@
 }
 
 .carousel_act_title{
-    font-weight: 600;
+    font-weight: f.$fontBold;
 }
 
 .carousel_act_subtitle{
