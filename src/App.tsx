@@ -26,8 +26,6 @@ const App = () => {
         </Container>
     </div>
       <SimpleBottomNavigation/>
-
-
       </>
     )
 

@@ -4,7 +4,7 @@ import { MdOutlineLocalMovies } from "react-icons/md";
 
 const Header = () => {
     return <div className={s.header} onClick={()=> window.scroll(0,0)}>
-        <MdOutlineLocalMovies/> MovieMani
+        <MdOutlineLocalMovies/> My Movie Choice
     </div>;
 }
 
