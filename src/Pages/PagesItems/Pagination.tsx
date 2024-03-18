@@ -1,15 +1,17 @@
 import * as React from 'react';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import usePageScroll from "../../hooks/usePageScroll";
 
 
 type Props = {
-    onPageChange(event: React.ChangeEvent<unknown>, value: number): void,
     pagesCount:number
 }
 
 
-const PaginationRounded = ({pagesCount, onPageChange}:Props) => {
+const PaginationRounded = ({pagesCount}:Props) => {
+
+    const {onPageChange} = usePageScroll();
     return (
         <div style={{
             width:"100%",

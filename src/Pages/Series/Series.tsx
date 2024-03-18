@@ -10,20 +10,17 @@ import {getGenres, getSeries} from "../../api/api";
 import {Genre} from "../../models/models";
 import Preloader from "../../components/Preloader/Preloader";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import usePageScroll from "../../hooks/usePageScroll";
 
 
 const Series = () => {
 
-    const [page,setPage] = useState<number>(1)
     const [sort_by,setSortBy] = useState<string>('popularity.desc')
     const [selectedGenres,setSelectedGenres] = useState<Genre[]>([])
     const [genres,setGenres] = useState<Genre[]>([])
     const genreforURL = useGenre(selectedGenres)
+    const { page, onPageChange, setPage } = usePageScroll();
 
-    const onSeriesPageChange= (event: React.ChangeEvent<unknown>, value: number)=>{
-        setPage(value)
-        window.scroll(0,0)
-    }
 
 
     const {data:series, isLoading:isSeriesLoading, isError} = useQuery({
@@ -38,8 +35,6 @@ const Series = () => {
         }
     })
 
-
-
     return <div>
         <div className={s.pageTitle}>Series</div>
         <Genres genres={genres}
@@ -53,7 +48,7 @@ const Series = () => {
         {isSeriesLoading || areGenresLoading && <Preloader/>}
         {isError && <ErrorPage/>}
         <PaginationRounded  pagesCount={series?.total_pages}
-                            onPageChange={onSeriesPageChange}/>
+                            onPageChange={onPageChange}/>
     </div>;
 }
 

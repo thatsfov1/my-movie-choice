@@ -3,7 +3,7 @@ export interface Genre {
     name:string
 }
 
-export interface Cast {
+export interface TCast {
     adult: boolean;
     gender: number;
     id: number;

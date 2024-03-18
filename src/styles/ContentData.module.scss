@@ -11,6 +11,10 @@
     @include m.flexJustify(space-between);
 }
 
+.previous{
+    margin-bottom: 30px;
+}
+
 .picture{
     width: 35%;
     img{

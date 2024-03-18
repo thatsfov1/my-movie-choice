@@ -3,7 +3,7 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import s from '../../styles/ContentData.module.scss'
 import {img_300, noPicture} from "../../config/config";
-import {Cast} from "../../models/models";
+import {TCast} from "../../models/models";
 
 
 const responsive = {
@@ -23,7 +23,7 @@ const responsive = {
     }
 }
 
-const Casts = ({credits}: {credits: Cast[] }) => {
+const Cast = ({credits}: {credits: TCast[] }) => {
     const items = credits?.map(content => (
         <div className={s.carousel_act_container} >
                 <div className={s.carousel_act_item}>
@@ -41,4 +41,4 @@ const Casts = ({credits}: {credits: Cast[] }) => {
     );
 }
 
-export default Casts
+export default Cast

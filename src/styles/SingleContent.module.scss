@@ -5,22 +5,24 @@
     @include m.flexColumn();
     position: relative;
     width: 200px;
-    padding: 5px;
-    background-color: #1A1A1D;
-    color: #fff;
+    padding: 10px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 42px -27px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0 0 42px -27px rgba(66, 68, 90, 1);
+    box-shadow: 0 0 42px -27px rgba(66, 68, 90, 1);
+    color: #334155;
     margin: 5px 0;
     transition: transform .2s;
-    border-radius: 3px;
+    border-radius: 16px;
     &:hover{
         transform: scale(1.01);
         cursor: pointer;
     }
 }
 
-@media(max-width: 550px){
-    .container{
-        width: 46%;
-    }
+.poster{
+    border-radius: 6px;
+    height: 300px;
 }
 
 .title{
@@ -28,12 +30,17 @@
     text-align: center;
     font-size: 1rem;
     padding: 8px 0;
-
 }
 
 .subtitle{
     @include m.flexJustify(space-between);
-    padding: 0 4px 3px 4px;
     font-weight: f.$fontThin;
+}
+
+
+@media(max-width: 550px){
+    .container{
+        width: 46%;
+    }
 }
 

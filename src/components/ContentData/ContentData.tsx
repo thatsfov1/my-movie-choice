@@ -6,7 +6,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import {Button, IconButton} from "@mui/material";
 import ContentInfo from "./ContentInfo.tsx";
 import CarouselRec from "./Recommendations.tsx";
-import Casts from "./Casts.tsx";
+import Cast from "./Cast.tsx";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import {useNavigate, useParams} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
@@ -84,7 +84,7 @@ const ContentData = () => {
                 {itemData?.overview && <div className={s.overview}>
                     {itemData?.overview}
                 </div>}
-                <Casts credits={itemCredits?.cast}/>
+                <Cast credits={itemCredits?.cast}/>
                 {itemLink && <Button variant="contained" disableElevation color="secondary" target="_blank"
                                          href={`https://www.youtube.com/watch?v=${itemLink}`}>
                     <YouTubeIcon/> Watch the trailer

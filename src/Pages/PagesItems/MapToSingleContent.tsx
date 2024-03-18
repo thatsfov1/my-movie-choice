@@ -4,6 +4,7 @@ import SingleContent from "../../components/SingleContent/SingleContent.tsx";
 import {Movie, Series} from "../../models/models";
 
 
+
 type Props = {
     content: Movie[] | Series[]
     media_type?:string

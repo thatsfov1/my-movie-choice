@@ -30,11 +30,12 @@ export default function SimpleBottomNavigation() {
     return (
         <Box sx={{}}>
             <BottomNavigation style={{
-                backgroundColor:'#1A1A1D',
+                backgroundColor:'#fff',
                 position:'fixed',
                 bottom:0,
                 width:"100%",
-                zIndex:100
+                zIndex:100,
+                boxShadow: "0px -6px 26px -18px rgba(66, 68, 90, 1)",
             }}
                 showLabels
                 value={value}
@@ -42,10 +43,10 @@ export default function SimpleBottomNavigation() {
                     setValue(newValue);
                 }}
             >
-                <BottomNavigationAction style={{color:"white"}} label="Trending" icon={<TrendingUpIcon />} />
-                <BottomNavigationAction style={{color:"white"}} label="Movies" icon={<MovieIcon />} />
-                <BottomNavigationAction style={{color:"white"}} label="Series" icon={<LiveTvIcon />} />
-                <BottomNavigationAction style={{color:"white"}} label="Search" icon={<SearchIcon />} />
+                <BottomNavigationAction style={{color:"#000"}} label="Trending" icon={<TrendingUpIcon />} />
+                <BottomNavigationAction style={{color:"#000"}} label="Movies" icon={<MovieIcon />} />
+                <BottomNavigationAction style={{color:"#000"}} label="Series" icon={<LiveTvIcon />} />
+                <BottomNavigationAction style={{color:"#000"}} label="Search" icon={<SearchIcon />} />
             </BottomNavigation>
         </Box>
     );

@@ -10,22 +10,17 @@ import useGenre from "../../hooks/useGenre";
 import {Genre} from "../../models/models";
 import Preloader from "../../components/Preloader/Preloader";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import usePageScroll from "../../hooks/usePageScroll";
 
 
 
 const Movies = () => {
 
-    const [page, setPage] = useState<number>(1);
     const [sort_by,setSortBy] = useState<string>('popularity.desc')
     const [selectedGenres, setSelectedGenres] = useState<Genre[]>([])
     const [genres, setGenres] = useState<Genre[]>([])
-
     const genreforURL = useGenre(selectedGenres)
-
-    const onPageChange = (event: React.ChangeEvent<unknown>, value: number) => {
-        setPage(value)
-        window.scroll(0, 0)
-    }
+    const { page, onPageChange, setPage } = usePageScroll();
 
     const {data:movies, isLoading:isMoviesLoading, isError} = useQuery({
         queryKey:['movies',page,genreforURL,sort_by ],

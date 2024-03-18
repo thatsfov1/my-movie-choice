@@ -8,10 +8,9 @@
 }
 
 .pageTitle{
-    @include m.flexJustify(center);
-    text-transform: uppercase;
-    font-size: 4vw;
-    padding: 4px;
+    @include m.flexJustify(flex-start);
+    font-size: 2rem;
+    padding: 10px;
     font-weight: f.$fontThin;
 }
 @media (max-width: 1000px) {

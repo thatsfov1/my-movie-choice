@@ -13,20 +13,20 @@ type Props = {
 
 const Genres = ({genres,setGenres,setPage,setSelectedGenres,selectedGenres}:Props) => {
 
+    const handleAdd = (genre:Genre) => {
+        setSelectedGenres([...selectedGenres, genre]);
+        setGenres(genres.filter((g) => g.id !== genre.id));
+        setPage(1);
+    };
 
-    const handleAdd = (genre:Genre)=>{
-        setSelectedGenres([...selectedGenres, genre])
-        setGenres(genres.filter(g => g.id !== genre.id))
-        setPage(1)
-    }
-
-    const handleRemove = (genre:Genre)=>{
+    const handleRemove = (genre:Genre) => {
         setSelectedGenres(
-            selectedGenres.filter(selected => selected.id !== genre.id)
-        )
-        setGenres([...genres, genre])
-        setPage(1)
-    }
+            selectedGenres.filter((selected) => selected.id !== genre.id)
+        );
+        setGenres([...genres, genre]);
+        setPage(1);
+    };
+
 
     return (
         <div style={{padding:"6px"}}>

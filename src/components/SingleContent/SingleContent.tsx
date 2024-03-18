@@ -20,11 +20,12 @@ const SingleContent = ({title, id, media_type, date, poster, vote_average}:Props
 
     return <div className={s.container} onClick={() => navigate(`/content/${media_type}/${id}`)}>
         <Badge badgeContent={vote_average} color={vote_average > 6 ? 'primary' : 'secondary'}/>
-        <img src={poster ? `${img_300}/${poster}` : unavailable} alt={title}/>
+        <img className={s.poster} src={poster ? `${img_300}/${poster}` : unavailable} alt={title}/>
         <span className={s.title}>{title}</span>
-        <span className={s.subtitle}>{media_type === 'tv' ? "TV series" : "Movie" }
+        <div className={s.subtitle}>
+            <span>{media_type === 'tv' ? "TV series" : "Movie" }</span>
             <span>{date}</span>
-        </span>
+        </div>
 
 
     </div>;
